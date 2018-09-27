@@ -81,12 +81,12 @@ public class Utility {
 	{
 		Date d=new Date();
 		String dateTime=d.toString().replaceAll(":", "_");
-		String path=folder+"/"+dateTime+".png";
+		String path=folder+"/"+dateTime+".png"; //./photo/thu Sep 27 12_10_33 IST 2018.png 
 		try {
-			TakesScreenshot t =(TakesScreenshot)driver;
-			File srcFile=t.getScreenshotAs(OutputType.FILE);
-			File destFile=new File(path);
-			FileUtils.copyFile(srcFile, destFile);
+			TakesScreenshot t =(TakesScreenshot)driver; //type casting to takesScreenshot interface
+			File srcFile=t.getScreenshotAs(OutputType.FILE); //takes screenshot 
+			File destFile=new File(path); // Creates new file in the path
+			FileUtils.copyFile(srcFile, destFile); //copy the screenshot to destination 
 			
 		}
 		catch(Exception e)
@@ -96,7 +96,7 @@ public class Utility {
 		return path;
 	}
 	
-	public static WebDriver openBrowser(WebDriver driver, String ip, String browser)
+	public static WebDriver openBrowser(WebDriver driver, String ip, String browser) //Grid
 	{
 		if(ip.equals("localhost"))
 		{
