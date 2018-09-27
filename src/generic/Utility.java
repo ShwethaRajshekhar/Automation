@@ -22,9 +22,9 @@ public class Utility {
 	{
 		String v="";
 		try {
-			Properties p=new Properties(); 
-			p.load(new FileInputStream(path));
-			v=p.getProperty(Key);
+			Properties p=new Properties(); //create object of Properties class
+			p.load(new FileInputStream(path)); //loads config.properties file using path
+			v=p.getProperty(Key); //gets the value by key(url)
 		}
 		catch(Exception e)
 		{
@@ -102,10 +102,10 @@ public class Utility {
 		{
 			if(browser.equals("chrome"))
 			{
-				driver=new ChromeDriver();
+				driver=new ChromeDriver(); //set the address of chrome browser to driver
 			}
 			else {
-				driver=new FirefoxDriver();
+				driver=new FirefoxDriver(); //set the address of firefox browser to driver
 			}
 		}
 		

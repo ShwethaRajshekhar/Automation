@@ -19,30 +19,32 @@ public abstract class BaseTest implements IAutoConst {
 	//works on one specific one browser if its made final
 	//url changes so never make it static and final
 	public String url=Utility.getPropertyValue(CONFIG_PATH, "URL");
-	String ITO=Utility.getPropertyValue(CONFIG_PATH, "ITO");
-	public long duration=Long.parseLong(ITO);
+	String ITO=Utility.getPropertyValue(CONFIG_PATH, "ITO"); //Go to config.properties and 
+	//gets the value thru key ITO
+	public long duration=Long.parseLong(ITO); //String converted to long
 	static
 	{
 		System.setProperty(CHROME_KEY, CHROME_VALUE);
 		System.setProperty(GECKO_KEY, GECKO_VALUE);
 	}
-	@Parameters({"ip","browser"})
+	@Parameters({"ip","browser"}) //send parameters thru XML if not take Optional values
 	@BeforeMethod()
 	public void openApplication(@Optional("localhost")String ip, @Optional("chrome")String browser)
 	{
 	    //driver=new ChromeDriver(); //local variable if WebDriver is used
 		//driver=Utility.openBrowser(driver, "localhost", "chrome"); //value hardcoded
-		driver=Utility.openBrowser(driver, ip, browser); //use @parameters
-		driver.manage().timeouts().implicitlyWait(duration,TimeUnit.SECONDS);
-		driver.get(url);
+		driver=Utility.openBrowser(driver, ip, browser); //use @parameters and driver=null here?
+		//method returns address of browser
+		driver.manage().timeouts().implicitlyWait(duration,TimeUnit.SECONDS); 
+		driver.get(url); //gets url from ./config.properties
 	}
 	
 	@AfterMethod
-	public void closeApplication(ITestResult result )
+	public void closeApplication(ITestResult result ) //declare var of ITestResult interface
 	{
 		//Utility.getPhoto(driver, PHOTO_PATH); takes photo for all the test method
-		String name=result.getName();
-		int status=result.getStatus();
+		String name=result.getName(); //subclass overridden method -getName(). returns name of test method
+		int status=result.getStatus(); //returns status as 1pass or 2Fail or 3Skip
 		if(status==2) //takes screenshot for failed test methods only
 		{
 			String path=Utility.getPhoto(driver, PHOTO_PATH);
