@@ -1,11 +1,16 @@
 package generic;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.util.Date;
 import java.util.Properties;
-
+import org.apache.commons.io.FileUtils;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 //all static methods
 public class Utility {
 	public static String getPropertyValue(String path, String Key)
@@ -65,6 +70,25 @@ public class Utility {
 			e.printStackTrace();
 		}
 		return count;
+	}
+	
+	public static String getPhoto(WebDriver driver, String folder)
+	{
+		Date d=new Date();
+		String dateTime=d.toString().replaceAll(":", "_");
+		String path=folder+"/"+dateTime+".png";
+		try {
+			TakesScreenshot t =(TakesScreenshot)driver;
+			File srcFile=t.getScreenshotAs(OutputType.FILE);
+			File destFile=new File(path);
+			FileUtils.copyFile(srcFile, destFile);
+			
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return path;
 	}
 	
 	
