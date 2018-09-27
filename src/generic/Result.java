@@ -1,8 +1,10 @@
 package generic;
 
+import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
+import org.testng.Reporter;
 
 public class Result implements ITestListener, IAutoConst {
 
@@ -24,6 +26,9 @@ public class Result implements ITestListener, IAutoConst {
 	public void onTestFailure(ITestResult result) {
 		// TODO Auto-generated method stub
 		failCount++;
+//		String p=Utility.getPhoto(driver, PHOTO_PATH);
+//		Reporter.log("Photo:"+p,true);
+		
 		
 	}
 

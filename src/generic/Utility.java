@@ -3,6 +3,7 @@ package generic;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.net.URL;
 import java.util.Date;
 import java.util.Properties;
 import org.apache.commons.io.FileUtils;
@@ -11,13 +12,17 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 //all static methods
 public class Utility {
-	public static String getPropertyValue(String path, String Key)
+	public static String getPropertyValue(String path, String Key) //path of config.properties
 	{
 		String v="";
 		try {
-			Properties p=new Properties();
+			Properties p=new Properties(); 
 			p.load(new FileInputStream(path));
 			v=p.getProperty(Key);
 		}
@@ -90,6 +95,39 @@ public class Utility {
 		}
 		return path;
 	}
+	
+	public static WebDriver openBrowser(WebDriver driver, String ip, String browser)
+	{
+		if(ip.equals("localhost"))
+		{
+			if(browser.equals("chrome"))
+			{
+				driver=new ChromeDriver();
+			}
+			else {
+				driver=new FirefoxDriver();
+			}
+		}
+		
+		else
+		{
+			try 
+			{
+				URL u=new URL("http://" +ip+":4444/wd/hub");
+				DesiredCapabilities d=new DesiredCapabilities();
+				d.setBrowserName(browser);
+				driver=new RemoteWebDriver(u,d);
+			}
+			catch(Exception e)
+			{
+				e.printStackTrace();
+			}
+		}
+		
+		return driver;
+	}
+	
+	
 	
 	
 

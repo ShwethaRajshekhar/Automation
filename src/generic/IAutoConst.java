@@ -1,9 +1,10 @@
 package generic;
 
 public interface IAutoConst {
-	
+	//all global var r initialized
+	//public static final by default
 	public static final String CHROME_KEY="webdriver.chrome.driver";
-	//access everywhere, wants to use in static block, final so that value will not be changed
+	//public- access everywhere, static-wants to use in static block, final so that value will not be changed
 	public static final String CHROME_VALUE="./driver/chromedriver.exe";
 	public static final String GECKO_KEY="webdriver.gecko.driver";
 	public static final String GECKO_VALUE="./driver/geckodriver.exe";
