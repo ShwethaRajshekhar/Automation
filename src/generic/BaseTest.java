@@ -47,7 +47,7 @@ public abstract class BaseTest implements IAutoConst {
 		int status=result.getStatus(); //returns status as 1pass or 2Fail or 3Skip
 		if(status==2) //takes screenshot for failed test methods only
 		{
-			String path=Utility.getPhoto(driver, PHOTO_PATH);
+			String path=Utility.getPhoto(driver, PHOTO_PATH); //returns the path of the screenshot.png
 			Reporter.log("Test:" +name+ " is Failed and photo is:" +path, true);
 		}
 		else {
