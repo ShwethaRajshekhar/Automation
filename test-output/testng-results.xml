@@ -8,12 +8,12 @@
       <![CDATA[Test:testBis PASSED]]>
     </line>
   </reporter-output>
-  <suite name="Default suite" duration-ms="18434" started-at="2018-09-28T10:06:12Z" finished-at="2018-09-28T10:06:31Z">
+  <suite name="Default suite" duration-ms="34438" started-at="2018-10-01T05:46:13Z" finished-at="2018-10-01T05:46:47Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="18434" started-at="2018-09-28T10:06:12Z" finished-at="2018-09-28T10:06:31Z">
+    <test name="Default test" duration-ms="34438" started-at="2018-10-01T05:46:13Z" finished-at="2018-10-01T05:46:47Z">
       <class name="script.TestDemo2">
-        <test-method status="PASS" signature="openApplication(java.lang.String, java.lang.String)[pri:0, instance:script.TestDemo2@204f30ec]" name="openApplication" is-config="true" duration-ms="6706" started-at="2018-09-28T10:06:12Z" finished-at="2018-09-28T10:06:19Z">
+        <test-method status="PASS" signature="openApplication(java.lang.String, java.lang.String)[pri:0, instance:script.TestDemo2@204f30ec]" name="openApplication" is-config="true" duration-ms="9268" started-at="2018-10-01T05:46:13Z" finished-at="2018-10-01T05:46:22Z">
           <params>
             <param index="0">
               <value>
@@ -29,14 +29,14 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openApplication -->
-        <test-method status="PASS" signature="testB()[pri:0, instance:script.TestDemo2@204f30ec]" name="testB" duration-ms="10948" started-at="2018-09-28T10:06:19Z" finished-at="2018-09-28T10:06:30Z">
+        <test-method status="PASS" signature="testB()[pri:0, instance:script.TestDemo2@204f30ec]" name="testB" duration-ms="24356" started-at="2018-10-01T05:46:22Z" finished-at="2018-10-01T05:46:47Z">
           <reporter-output>
             <line>
               <![CDATA[testB.. executed]]>
             </line>
           </reporter-output>
         </test-method> <!-- testB -->
-        <test-method status="PASS" signature="closeApplication(org.testng.ITestResult)[pri:0, instance:script.TestDemo2@204f30ec]" name="closeApplication" is-config="true" duration-ms="763" started-at="2018-09-28T10:06:30Z" finished-at="2018-09-28T10:06:31Z">
+        <test-method status="PASS" signature="closeApplication(org.testng.ITestResult)[pri:0, instance:script.TestDemo2@204f30ec]" name="closeApplication" is-config="true" duration-ms="779" started-at="2018-10-01T05:46:47Z" finished-at="2018-10-01T05:46:47Z">
           <params>
             <param index="0">
               <value>
